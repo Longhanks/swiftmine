@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'UI_MainWindow.ui'
 **
-** Created by: Qlift User Interface Compiler version 0.0.11
+** Created by: Qlift User Interface Compiler version 0.0.12
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
