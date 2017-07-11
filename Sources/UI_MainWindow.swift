@@ -1,12 +1,13 @@
 /********************************************************************************
 ** Form generated from reading UI file 'UI_MainWindow.ui'
 **
-** Created by: Qlift User Interface Compiler version 0.0.9
+** Created by: Qlift User Interface Compiler version 0.0.11
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
 import Qlift
+
 
 class UI_MainWindow: QMainWindow {
     var centralwidget: QWidget
@@ -21,9 +22,9 @@ class UI_MainWindow: QMainWindow {
     var actionExit: QAction
 
     init() {
-        actionNewGame = QAction(self)
+        actionNewGame = QAction(parent: self)
         actionNewGame.text = "&New Game"
-        actionExit = QAction(self)
+        actionExit = QAction(parent: self)
         actionExit.text = "&Exit"
         self.geometry = QRect(x: 0, y: 0, width: 205, height: 169)
         self.windowTitle = "MainWindow"
