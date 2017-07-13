@@ -8,15 +8,18 @@ import Qlift
 
 func main() -> Int32 {
     let application = QApplication()
-    let mainWindow = UI_MainWindow()
-    // let mainWindow = QMainWindow()
-    // let label = QLabel(text: "Hello, world!", parent: mainWindow)
-    // label.alignment = 132
-    // let pushButton = QPushButton(text: "Push me!", parent: mainWindow)
-    // pushButton.connectClicked { checked in
-    //     print("Button clicked, now is \(checked)")
-    // }
-    // mainWindow.centralWidget = pushButton
+    let mainWindow = QMainWindow()
+    let widget = QWidget()
+    let layout = QVBoxLayout(parent: widget)
+    let label = QLabel(text: "Hello, world!")
+    label.alignment = 132
+    let pushButton = QPushButton(text: "Push me!")
+    pushButton.connectClicked { checked in
+        print("Button clicked, now is \(checked)")
+    }
+    layout.add(widget: label)
+    layout.add(widget: pushButton)
+    mainWindow.centralWidget = widget
     mainWindow.show()
     return application.exec()
 }
