@@ -12,7 +12,7 @@ func main() -> Int32 {
     let widget = QWidget()
     let layout = QVBoxLayout(parent: widget)
     let label = QLabel(text: "Hello, world!")
-    label.alignment = 132
+    label.alignment = .AlignCenter
     let pushButton = QPushButton(text: "Push me!")
     pushButton.connectClicked { checked in
         print("Button clicked, now is \(checked)")
