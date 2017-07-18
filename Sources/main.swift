@@ -8,7 +8,8 @@ import Qlift
 
 func main() -> Int32 {
     let application = QApplication()
-    let mainWindow = QMainWindow()
+    let mainWindow = UI_MainWindow()
+    /*
     let widget = QWidget()
     let layout = QVBoxLayout(parent: widget)
     let label = QLabel(text: "Hello, world!")
@@ -24,6 +25,7 @@ func main() -> Int32 {
     layout.add(widget: pushButton)
     layout.add(item: spacer2)
     mainWindow.centralWidget = widget
+    */
     mainWindow.show()
     return application.exec()
 }

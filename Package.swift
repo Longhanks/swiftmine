@@ -2,10 +2,11 @@
 
 import PackageDescription
 
+
 let package = Package(
     name: "qlift-swift-example",
     dependencies: [
-        .Package(url: "https://github.com/Longhanks/qlift", Version(0, 0, 19))
+        .Package(url: "https://github.com/Longhanks/qlift", Version(0, 0, 26))
     ]
 )
 
