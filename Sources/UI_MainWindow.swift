@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'UI_MainWindow.ui'
 **
-** Created by: Qlift User Interface Compiler version 0.0.30
+** Created by: Qlift User Interface Compiler version 0.0.31
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -45,6 +45,8 @@ class UI_MainWindow: QMainWindow {
         menubar.geometry = QRect(x: 0, y: 0, width: 205, height: 30)
         menuFile = QMenu(parent: menubar)
         menuFile.title = "&File"
+        menuFile.add(action: actionNewGame)
+        menuFile.add(action: actionExit)
         menubar.add(action: menuFile.menuAction())
         self.menuBar = menubar
     }
