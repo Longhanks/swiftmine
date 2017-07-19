@@ -22,7 +22,10 @@ swift build -c release -Xswiftc -static-stdlib
 
 If you want to build with [qlift-c-api](https://github.com/Longhanks/qlift-c-api/) statically embedded, use the provided `buildscript.sh`. This can be edited and ammended with the `-c release -Xswiftc -static-stdlib` options if you wish so.
 
-### Screenshot
+### Screenshots
 
-![Screenshot 1](./Deploy/screenshot.png "Screenshot 1")
+![Screenshot 1](./Deploy/screenshot1.png "Screenshot 1")
+
+![Screenshot 2](./Deploy/screenshot2.png "Screenshot 2")
+
 
