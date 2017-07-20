@@ -6,26 +6,20 @@ import Darwin
 import Qlift
 
 
+class MainWindow: UI_MainWindow {
+    override init() {
+        super.init()
+        self.pushButtonNewGame.connectClicked(to: self.printChecked)
+    }
+
+    func printChecked(checked: Bool) {
+        print("New game checked: \(checked)")
+    }
+}
+
 func main() -> Int32 {
     let application = QApplication()
-    let mainWindow = UI_MainWindow()
-    /*
-    let widget = QWidget()
-    let layout = QVBoxLayout(parent: widget)
-    let label = QLabel(text: "Hello, world!")
-    label.alignment = .AlignCenter
-    let pushButton = QPushButton(text: "Push me!")
-    pushButton.connectClicked { checked in
-        print("Button clicked, now is \(checked)")
-    }
-    let spacer1 = QSpacerItem(width: 20, height: 40, horizontalPolicy: .Minimum, verticalPolicy: .Expanding)
-    let spacer2 = QSpacerItem(width: 20, height: 40, horizontalPolicy: .Minimum, verticalPolicy: .Expanding)
-    layout.add(widget: label)
-    layout.add(item: spacer1)
-    layout.add(widget: pushButton)
-    layout.add(item: spacer2)
-    mainWindow.centralWidget = widget
-    */
+    let mainWindow = MainWindow()
     mainWindow.show()
     return application.exec()
 }
