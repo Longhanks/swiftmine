@@ -20,6 +20,9 @@ class MainWindow: UI_MainWindow {
 func main() -> Int32 {
     let application = QApplication()
     let mainWindow = MainWindow()
+    mainWindow.actionExit.connectTriggered { checked in
+        application.exit(returnCode: 0)
+    }
     mainWindow.show()
     return application.exec()
 }
