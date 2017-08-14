@@ -31,7 +31,7 @@ class UI_NewGameDialog: QDialog {
 
     init() {
         super.init()
-        self.geometry = QRect(x: 0, y: 0, width: 314, height: 228)
+        self.geometry = QRect(x: 0, y: 0, width: 336, height: 247)
         self.windowTitle = "New Game"
         verticalLayoutMain = QVBoxLayout(parent: self)
         verticalLayoutMain.sizeConstraint = .SetFixedSize

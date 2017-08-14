@@ -12,10 +12,12 @@ import Qlift
 class UI_MainWindow: QMainWindow {
     var centralwidget: QWidget!
     var verticalLayout: QVBoxLayout!
+    var verticalSpacerTop: QSpacerItem!
     var horizontalLayout: QHBoxLayout!
     var horizontalSpacerLeft: QSpacerItem!
     var pushButtonNewGame: QPushButton!
     var horizontalSpacerRight: QSpacerItem!
+    var verticalSpacerBottom: QSpacerItem!
     var menubar: QMenuBar!
     var menuFile: QMenu!
     var actionNewGame: QAction!
@@ -24,13 +26,15 @@ class UI_MainWindow: QMainWindow {
     init() {
         super.init()
         actionNewGame = QAction(parent: self)
-        actionNewGame.text = "&New Game"
+        actionNewGame.text = "New Game"
         actionExit = QAction(parent: self)
-        actionExit.text = "&Exit"
-        self.geometry = QRect(x: 0, y: 0, width: 205, height: 169)
-        self.windowTitle = "MainWindow"
+        actionExit.text = "Exit"
+        self.geometry = QRect(x: 0, y: 0, width: 250, height: 200)
+        self.windowTitle = "swiftmine"
         centralwidget = QWidget(parent: self)
         verticalLayout = QVBoxLayout(parent: centralwidget)
+        verticalSpacerTop = QSpacerItem(width: 17, height: 48, horizontalPolicy: .Minimum, verticalPolicy: .Expanding)
+        verticalLayout.add(item: verticalSpacerTop)
         horizontalLayout = QHBoxLayout(parent: nil)
         horizontalSpacerLeft = QSpacerItem(width: 40, height: 20, horizontalPolicy: .Expanding, verticalPolicy: .Minimum)
         horizontalLayout.add(item: horizontalSpacerLeft)
@@ -40,11 +44,13 @@ class UI_MainWindow: QMainWindow {
         horizontalSpacerRight = QSpacerItem(width: 40, height: 20, horizontalPolicy: .Expanding, verticalPolicy: .Minimum)
         horizontalLayout.add(item: horizontalSpacerRight)
         verticalLayout.add(layout: horizontalLayout)
+        verticalSpacerBottom = QSpacerItem(width: 17, height: 48, horizontalPolicy: .Minimum, verticalPolicy: .Expanding)
+        verticalLayout.add(item: verticalSpacerBottom)
         self.centralWidget = centralwidget
         menubar = QMenuBar(parent: self)
-        menubar.geometry = QRect(x: 0, y: 0, width: 205, height: 30)
+        menubar.geometry = QRect(x: 0, y: 0, width: 250, height: 22)
         menuFile = QMenu(parent: menubar)
-        menuFile.title = "&File"
+        menuFile.title = "File"
         menuFile.add(action: actionNewGame)
         menuFile.add(action: actionExit)
         menubar.add(action: menuFile.menuAction())
