@@ -23,7 +23,7 @@ class MainWindow: UI_MainWindow {
         }
         self.dialogIsVisible = true
         
-        let dlg = UI_NewGameDialog(parent: self)
+        let dlg = NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
             print("Dialog accepted")
             self.dialogIsVisible = false

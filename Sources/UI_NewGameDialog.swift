@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'UI_NewGameDialog.ui'
 **
-** Created by: Qlift User Interface Compiler version 0.0.51
+** Created by: Qlift User Interface Compiler version 0.0.52
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,7 +29,7 @@ class UI_NewGameDialog: QDialog {
     var verticalSpacerLower: QSpacerItem!
     var buttonBox: QDialogButtonBox!
 
-    override init(parent: QWidget? = nil, flags: Int32 = 0) {
+    override init(parent: QWidget? = nil, flags: Qt.WindowFlags = .Widget) {
         super.init(parent: parent, flags: flags)
         self.geometry = QRect(x: 0, y: 0, width: 336, height: 247)
         self.windowTitle = "New Game"
