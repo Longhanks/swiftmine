@@ -4,9 +4,9 @@ import PackageDescription
 
 
 let package = Package(
-    name: "qlift-swift-example",
+    name: "swiftmine",
     dependencies: [
-        .Package(url: "https://github.com/Longhanks/qlift", Version(0, 0, 46))
+        .Package(url: "ssh://github.com/Longhanks/qlift", Version(0, 0, 46))
     ]
 )
 

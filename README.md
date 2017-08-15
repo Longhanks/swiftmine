@@ -1,4 +1,4 @@
-# qlift-swift-example
+# swiftmine
 Example consuming Qlift to create a Qt application with Swift
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Longhanks/qlift-swift-example/master/LICENSE)
