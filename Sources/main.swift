@@ -6,12 +6,8 @@ import Darwin
 import Qlift
 
 
-func main() -> Int32 {
-    let application = QApplication()
-    let mainWindow = MainWindow()
-    mainWindow.show()
-    return application.exec()
-}
-
-exit(main())
+let application = QApplication()
+let mainWindow = MainWindow()
+mainWindow.show()
+exit(application.exec())
 

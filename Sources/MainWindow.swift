@@ -4,7 +4,7 @@ import Qlift
 class MainWindow: UI_MainWindow {
     var dialogIsVisible = false
 
-    override init() {
+    init() {
         super.init()
         self.actionNewGame.connectTriggered { _ in
             self.showNewGameDialog()
@@ -23,9 +23,10 @@ class MainWindow: UI_MainWindow {
         }
         self.dialogIsVisible = true
         
-        let dlg = UI_NewGameDialog()
+        let dlg = UI_NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
             print("Dialog accepted")
+            self.dialogIsVisible = false
         } else {
             QCoreApplication.instance.quit()
         }

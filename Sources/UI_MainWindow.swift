@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'UI_MainWindow.ui'
 **
-** Created by: Qlift User Interface Compiler version 0.0.36
+** Created by: Qlift User Interface Compiler version 0.0.51
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -23,8 +23,8 @@ class UI_MainWindow: QMainWindow {
     var actionNewGame: QAction!
     var actionExit: QAction!
 
-    init() {
-        super.init()
+    override init(parent: QWidget? = nil, flags: Int32 = 0) {
+        super.init(parent: parent, flags: flags)
         actionNewGame = QAction(parent: self)
         actionNewGame.text = "New Game"
         actionExit = QAction(parent: self)
