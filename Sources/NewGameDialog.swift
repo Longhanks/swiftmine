@@ -7,6 +7,9 @@ class NewGameDialog: UI_NewGameDialog {
         self.comboBoxDefaultModes.connectCurrentIndexChanged { (_: Int32) -> Void in
             self.checkNewMode()
         }
+        if let parentWidget = parent {
+            self.move(to: parentWidget.window.frameGeometry.topLeft + parentWidget.window.rect.center - self.rect.center)
+        }
     }
 
     func checkNewMode() {
