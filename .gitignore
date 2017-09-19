@@ -3,4 +3,5 @@
 /Packages
 /*.xcodeproj
 Package.pins
+Package.resolved
 qlift-c-api

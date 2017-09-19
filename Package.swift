@@ -1,12 +1,22 @@
-// swift-tools-version:3.1
+// swift-tools-version:4.0
 
 import PackageDescription
 
 
 let package = Package(
     name: "swiftmine",
+    products: [
+        .executable(name: "swiftmine", targets: ["swiftmine"])
+    ],
     dependencies: [
-        .Package(url: "https://github.com/Longhanks/qlift", Version(0, 0, 60))
+        .package(url: "https://github.com/Longhanks/qlift", .branch("master"))
+    ],
+    targets: [
+        .target(
+            name: "swiftmine",
+            dependencies: ["Qlift"],
+            path: "./Sources"
+        )
     ]
 )
 
