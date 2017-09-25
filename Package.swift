@@ -14,7 +14,9 @@ let package = Package(
     targets: [
         .target(
             name: "swiftmine",
-            dependencies: ["Qlift"],
+            dependencies: [
+                .productItem(name: "Qlift", package: "Qlift")
+            ],
             path: "./Sources"
         )
     ]
