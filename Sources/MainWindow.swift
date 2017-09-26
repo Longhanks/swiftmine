@@ -25,10 +25,12 @@ class MainWindow: UI_MainWindow {
             return
         }
         self.dialogIsVisible = true
-        
+
         let dlg = NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
-            print("Dialog accepted")
+            let game = GameWidget(rows: Int(dlg.spinBoxRows.value), columns: Int(dlg.spinBoxColumns.value), mines: Int(dlg.spinBoxMines.value), parent: self)
+            self.centralWidget = game
+            // Singleshot
             self.dialogIsVisible = false
         } else {
             QCoreApplication.instance.quit()
