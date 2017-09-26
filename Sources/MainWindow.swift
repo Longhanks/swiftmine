@@ -30,7 +30,9 @@ class MainWindow: UI_MainWindow {
         if dlg.exec() == .Accepted {
             let game = GameWidget(rows: Int(dlg.spinBoxRows.value), columns: Int(dlg.spinBoxColumns.value), mines: Int(dlg.spinBoxMines.value), parent: self)
             self.centralWidget = game
-            // Singleshot
+            QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in
+                self.resize(width: 0, height: 0)
+            }
             self.dialogIsVisible = false
         } else {
             QCoreApplication.instance.quit()
