@@ -29,6 +29,12 @@ class MainWindow: UI_MainWindow {
         let dlg = NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
             let game = GameWidget(rows: Int(dlg.spinBoxRows.value), columns: Int(dlg.spinBoxColumns.value), mines: Int(dlg.spinBoxMines.value), parent: self)
+            game.onGameIsWon = { [weak self] in
+                self?.gameIsWon()
+            }
+            game.onGameIsLost = { [weak self] in
+                self?.gameIsLost()
+            }
             self.centralWidget = game
             QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in
                 self.resize(width: 0, height: 0)
@@ -37,6 +43,14 @@ class MainWindow: UI_MainWindow {
         } else {
             QCoreApplication.instance.quit()
         }
+    }
+
+    func gameIsWon() {
+        print("Game is won")
+    }
+
+    func gameIsLost() {
+        print("Game is lost")
     }
 }
 
