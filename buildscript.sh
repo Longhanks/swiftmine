@@ -12,6 +12,17 @@ if [ ! -f qlift-c-api/build/bin/libqlift-c-api.a ]; then
 fi
 QLIFT_C_API=$(pwd)/qlift-c-api
 
+if [ ! -f qlift/.build/debug/qlift-uic ]; then
+    rm -rf qlift
+    git clone https://github.com/Longhanks/qlift
+    cd qlift
+    swift build --product qlift-uic
+    cd ..
+fi
+
+./qlift/.build/debug/qlift-uic ./UI/UI_GameWidget.ui > ./Sources/UI_GameWidget.swift
+./qlift/.build/debug/qlift-uic ./UI/UI_MainWindow.ui > ./Sources/UI_MainWindow.swift
+./qlift/.build/debug/qlift-uic ./UI/UI_NewGameDialog.ui > ./Sources/UI_NewGameDialog.swift
 
 if [[ $(uname -s) == 'Darwin' ]]; then
     ADDITIONAL_FLAGS="-Xlinker -search_paths_first -Xlinker -lc++"
