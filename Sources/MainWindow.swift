@@ -78,5 +78,24 @@ class MainWindow: UI_MainWindow {
             self.showNewGameDialog()
         }
     }
+
+    override func closeEvent(event: QCloseEvent) {
+        if self.dialogIsVisible {
+            event.ignore()
+            return
+        }
+        let msgBox = QMessageBox(parent: self)
+        msgBox.windowModality = .WindowModal
+        msgBox.windowTitle = "Confirm exit"
+        msgBox.icon = .Question
+        msgBox.text = "Are you sure you want to quit?"
+        msgBox.standardButtons = [.Yes, .No]
+        msgBox.setDefaultStandardButton(.No)
+        if msgBox.exec() == .Yes {
+            event.accept()
+        } else {
+            event.ignore()
+        }
+    }
 }
 
