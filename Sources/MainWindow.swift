@@ -46,11 +46,37 @@ class MainWindow: UI_MainWindow {
     }
 
     func gameIsWon() {
-        print("Game is won")
+        self.dialogIsVisible = true
+        let msgBox = QMessageBox(parent: self)
+        msgBox.windowModality = .WindowModal
+        msgBox.windowTitle = "You won!"
+        msgBox.icon = .Question
+        msgBox.text = "Congratulations! New game?"
+        msgBox.standardButtons = [.Yes, .No]
+        msgBox.setDefaultStandardButton(.No)
+        if msgBox.exec() == .No {
+            QCoreApplication.instance.quit()
+        } else {
+            self.dialogIsVisible = false
+            self.showNewGameDialog()
+        }
     }
 
     func gameIsLost() {
-        print("Game is lost")
+        self.dialogIsVisible = true
+        let msgBox = QMessageBox(parent: self)
+        msgBox.windowModality = .WindowModal
+        msgBox.windowTitle = "You lost!"
+        msgBox.icon = .Question
+        msgBox.text = "Game over. New game?"
+        msgBox.standardButtons = [.Yes, .No]
+        msgBox.setDefaultStandardButton(.No)
+        if msgBox.exec() == .No {
+            QCoreApplication.instance.quit()
+        } else {
+            self.dialogIsVisible = false
+            self.showNewGameDialog()
+        }
     }
 }
 
