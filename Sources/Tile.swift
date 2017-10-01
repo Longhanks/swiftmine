@@ -13,6 +13,7 @@ class Tile: QPushButton {
         self.x = x
         self.y = y
         super.init(parent: parent)
+        self.maximumSize = QSize(width: 20, height: 20)
     }
 
     override func mousePressEvent(event: QMouseEvent) {
