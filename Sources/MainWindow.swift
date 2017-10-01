@@ -28,7 +28,7 @@ class MainWindow: UI_MainWindow {
 
         let dlg = NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
-            let game = GameWidget(rows: Int(dlg.spinBoxRows.value), columns: Int(dlg.spinBoxColumns.value), mines: Int(dlg.spinBoxMines.value), parent: self)
+            let game = GameWidget(rows: dlg.spinBoxRows.value, columns: dlg.spinBoxColumns.value, mines: dlg.spinBoxMines.value, parent: self)
             game.onGameIsWon = { [weak self] in
                 self?.gameIsWon()
             }

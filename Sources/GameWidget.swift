@@ -4,11 +4,11 @@ import Qlift
 class GameWidget: UI_GameWidget {
     var onGameIsWon: (() -> Void)?
     var onGameIsLost: (() -> Void)?
-    let rows: Int
-    let columns: Int
+    let rows: Int32
+    let columns: Int32
     var matrix = [[Tile]]()
 
-    init(rows: Int, columns: Int, mines: Int, parent: QWidget? = nil) {
+    init(rows: Int32, columns: Int32, mines: Int32, parent: QWidget? = nil) {
         self.rows = rows
         self.columns = columns
         super.init(parent: parent)
@@ -17,9 +17,9 @@ class GameWidget: UI_GameWidget {
             self.matrix.append([])
             for row in 0..<rows {
                 let btn = Tile(x: column, y: row, parent: self)
-                self.mainLayout.add(widget: btn, row: Int32(column), column: Int32(row))
+                self.mainLayout.add(widget: btn, row: row, column: column)
                 // clicked callbacks now
-                self.matrix[column].append(btn)
+                self.matrix[Int(column)].append(btn)
             }
         }
     }
