@@ -11,7 +11,7 @@ class Tile: QPushButton {
         self.x = x
         self.y = y
         super.init(parent: parent)
-        self.connectClicked(receiver: self) { _ in
+        self.connectClicked(receiver: self) { [unowned self] _ in
             self.onClickedSuccessfully?(self.x, self.y)
         }
     }
