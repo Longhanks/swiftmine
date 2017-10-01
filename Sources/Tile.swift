@@ -55,10 +55,10 @@ extension Tile {
         }
 
         if self.text == "F" {
-            // Stylesheet
+            self.styleSheet = "QPushButton {color: black;}"
             self.text = ""
         } else {
-            // Stylesheet
+            self.styleSheet = "QPushButton {color: red;}"
             self.text = "F"
         }
     }
