@@ -18,7 +18,9 @@ class GameWidget: UI_GameWidget {
             for row in 0..<rows {
                 let btn = Tile(x: column, y: row, parent: self)
                 self.mainLayout.add(widget: btn, row: row, column: column)
-                // clicked callbacks now
+                btn.onClickedSuccessfully = { [unowned self] (x, y) in
+                    print("Button at \(x):\(y) pressed")
+                }
                 self.matrix[Int(column)].append(btn)
             }
         }

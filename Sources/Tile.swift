@@ -2,6 +2,8 @@ import Qlift
 
 
 class Tile: QPushButton {
+    var onClickedSuccessfully: ((Int32, Int32) -> Void)?
+    var onClickedMine: (() -> Void)?
     let x: Int32
     let y: Int32
 
@@ -9,6 +11,9 @@ class Tile: QPushButton {
         self.x = x
         self.y = y
         super.init(parent: parent)
+        self.connectClicked(receiver: self) { _ in
+            self.onClickedSuccessfully?(self.x, self.y)
+        }
     }
 }
 
