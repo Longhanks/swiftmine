@@ -29,9 +29,10 @@ if [[ $(uname -s) == 'Darwin' ]]; then
     QT_PATH=$(brew --prefix qt)
     QT_FLAGS="-Xlinker $QT_PATH/lib/QtCore.framework/QtCore -Xlinker $QT_PATH/lib/QtGui.framework/QtGui -Xlinker $QT_PATH/lib/QtWidgets.framework/QtWidgets"
 else
+    ADDITIONAL_FLAGS="-Xlinker -lbsd -Xlinker -lcurl -Xlinker -licuuc -Xlinker -licudata -Xlinker -licui18n -Xlinker -lxml2"
     QT_FLAGS="-Xlinker -lQt5Core -Xlinker -lQt5Gui -Xlinker -lQt5Widgets"
 fi
 
 
-swift build -Xcc -I$QLIFT_C_API/src $ADDITIONAL_FLAGS -Xlinker -L$QLIFT_C_API/build/bin $QT_FLAGS
+swift build -Xswiftc -static-stdlib -Xcc -I$QLIFT_C_API/src $ADDITIONAL_FLAGS -Xlinker -L$QLIFT_C_API/build/bin $QT_FLAGS
 
