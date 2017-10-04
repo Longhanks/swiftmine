@@ -60,10 +60,10 @@ before_install:
 
 script:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then
-      ./buildscript.sh;
+      ./buildscript.sh release;
     fi
 
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then
-      CC=gcc-7 CXX=g++-7 LIBRARY_PATH=/opt/qt59/lib ./buildscript.sh;
+      CC=gcc-7 CXX=g++-7 LIBRARY_PATH=/opt/qt59/lib ./buildscript.sh release;
     fi
 

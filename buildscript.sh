@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $1 == "clean" ]]; then
+    rm -rf qlift qlift-c-api macdeployqtfix Package.resolved Package.pins .build Sources/UI_*
+    exit
+fi
+
 if [ ! -f qlift-c-api/build/bin/libqlift-c-api.a ]; then
     rm -rf qlift-c-api
     git clone https://github.com/Longhanks/qlift-c-api
@@ -33,6 +38,25 @@ else
     QT_FLAGS="-Xlinker -lQt5Core -Xlinker -lQt5Gui -Xlinker -lQt5Widgets"
 fi
 
+if [[ $1 == "release" ]]; then
+    ADDITIONAL_FLAGS="$ADDITIONAL_FLAGS -c release"
+fi
 
 swift build -Xswiftc -static-stdlib -Xcc -I$QLIFT_C_API/src $ADDITIONAL_FLAGS -Xlinker -L$QLIFT_C_API/build/bin $QT_FLAGS
+
+if [[ $(uname -s) == 'Darwin' ]]; then
+    if [[ $1 == "release" ]]; then
+        mkdir -p ./.build/release/swiftmine.app/Contents/MacOS
+        mkdir -p ./.build/release/swiftmine.app/Contents/Resources
+        scp ./Deploy/Info.plist ./.build/release/swiftmine.app/Contents/
+        scp ./Deploy/PkgInfo ./.build/release/swiftmine.app/Contents/
+        scp ./.build/release/swiftmine ./.build/release/swiftmine.app/Contents/MacOS/
+        $(brew --prefix qt)/bin/macdeployqt ./.build/release/swiftmine.app
+
+        if [ ! -f ./macdeployqtfix/macdeployqtfix.py ]; then
+            git clone https://github.com/Longhanks/macdeployqtfix
+        fi
+        python ./macdeployqtfix/macdeployqtfix.py ./.build/release/swiftmine.app/Contents/MacOS/swiftmine $(brew --prefix qt) --no-log-file
+    fi
+fi
 
