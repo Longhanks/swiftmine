@@ -42,7 +42,7 @@ if [[ $1 == "release" ]]; then
     ADDITIONAL_FLAGS="$ADDITIONAL_FLAGS -c release"
 fi
 
-swift build -Xswiftc -static-stdlib -Xcc -I$QLIFT_C_API/src $ADDITIONAL_FLAGS -Xlinker -L$QLIFT_C_API/build/bin $QT_FLAGS
+swift build -Xcc -I$QLIFT_C_API/src $ADDITIONAL_FLAGS -Xlinker -L$QLIFT_C_API/build/bin $QT_FLAGS
 
 if [[ $(uname -s) == 'Darwin' ]]; then
     if [[ $1 == "release" ]]; then

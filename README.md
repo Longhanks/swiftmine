@@ -1,5 +1,5 @@
 # swiftmine
-Minesweeper with Swift 4 and [Qlift](https://github.com/Longhanks/Qlift "Qlift")
+Minesweeper with Swift 5 and [Qlift](https://github.com/Longhanks/Qlift "Qlift")
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Longhanks/swiftmine/master/LICENSE)
 [![Build status](https://api.travis-ci.org/Longhanks/swiftmine.svg?branch=master)](https://travis-ci.org/Longhanks/swiftmine)
