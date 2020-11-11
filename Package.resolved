@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/Longhanks/qlift",
         "state": {
           "branch": "master",
-          "revision": "f64d8262f64d88b2ef5914e8d8fd0b14379881c3",
+          "revision": "a6da5b2b37503b37d7059383f0004749b404c967",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/Longhanks/qlift-c-api",
         "state": {
           "branch": "master",
-          "revision": "15000d359f04adf89696310c1a93a315ed909671",
+          "revision": "a5900ae0a3b85230573255fb46774eb8223696ba",
           "version": null
         }
       }

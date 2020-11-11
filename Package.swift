@@ -24,7 +24,26 @@ let package = Package(
             dependencies: [
                 "Qlift"
             ],
-            path: "Sources"
+            path: "Sources",
+            cxxSettings: [
+                .unsafeFlags([
+                        "-I/usr/local/opt/qt/lib/QtCore.framework/Headers",
+                        "-I/usr/local/opt/qt/lib/QtGui.framework/Headers",
+                        "-I/usr/local/opt/qt/lib/QtWidgets.framework/Headers",
+                        "-I/usr/local/opt/qt/include"
+                    ],
+                    .when(platforms: [.macOS])
+                )
+            ],
+            linkerSettings: [
+                .unsafeFlags([
+                        "/usr/local/opt/qt/lib/QtCore.framework/QtCore",
+                        "/usr/local/opt/qt/lib/QtGui.framework/QtGui",
+                        "/usr/local/opt/qt/lib/QtWidgets.framework/QtWidgets",
+                    ],
+                    .when(platforms: [.macOS])
+                )
+            ]
         )
     ]
 )
