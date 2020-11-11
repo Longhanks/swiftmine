@@ -5,7 +5,22 @@ Minesweeper with Swift 5 and [Qlift](https://github.com/Longhanks/Qlift "Qlift")
 
 ## Building
 
+### Linux
+
 `swift build`
+
+### Mac
+
+```sh
+swift build \
+    -Xcc -I$(brew --prefix qt)/lib/QtCore.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/lib/QtGui.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/lib/QtWidgets.framework/Headers \
+    -Xcc -I$(brew --prefix qt)/include \
+    -Xlinker $(brew --prefix qt)/lib/QtCore.framework/QtCore \
+    -Xlinker $(brew --prefix qt)/lib/QtGui.framework/QtGui \
+    -Xlinker $(brew --prefix qt)/lib/QtWidgets.framework/QtWidgets
+```
 
 [Qlift](https://github.com/Longhanks/Qlift "Qlift") provides the *.ui file compiler, `qlift-uic`, which must be used to compile the files from the UI directory into Swift source files in the Sources directory. This must be repeated whenever the *.ui files are changed.
 
