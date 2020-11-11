@@ -92,7 +92,7 @@ extension GameWidget {
     func checkIfGameIsWon() {
         for column in self.matrix {
             for btn in column {
-                let countIsVisible = !btn.text.isEmpty && btn.text != "F"
+                let countIsVisible = !btn.label.text.isEmpty && btn.label.text != "F"
                 if !(countIsVisible || btn.isMine) {
                     return
                 }

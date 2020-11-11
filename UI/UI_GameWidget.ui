@@ -14,6 +14,21 @@
             <string>Form</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
+            <property name="spacing">
+                <number>0</number>
+            </property>
+            <property name="leftMargin">
+                <number>0</number>
+            </property>
+            <property name="topMargin">
+                <number>0</number>
+            </property>
+            <property name="rightMargin">
+                <number>0</number>
+            </property>
+            <property name="bottomMargin">
+                <number>0</number>
+            </property>
             <item>
                 <spacer name="verticalSpacerTop">
                     <property name="orientation">
@@ -43,7 +58,11 @@
                         </spacer>
                     </item>
                     <item>
-                        <layout class="QGridLayout" name="mainLayout"/>
+                        <layout class="QGridLayout" name="mainLayout">
+                            <property name="spacing">
+                                <number>1</number>
+                            </property>
+                        </layout>
                     </item>
                     <item>
                         <spacer name="horizontalSpacerRight">

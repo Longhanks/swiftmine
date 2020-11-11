@@ -2,9 +2,5 @@
 /.build
 /Packages
 /*.xcodeproj
-Package.pins
-Package.resolved
-qlift-c-api
-qlift
-macdeployqtfix
-Sources/UI_*
+xcuserdata/
+.idea/

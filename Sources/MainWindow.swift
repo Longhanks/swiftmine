@@ -35,9 +35,12 @@ class MainWindow: UI_MainWindow {
             game.onGameIsLost = { [weak self] in
                 self?.gameIsLost()
             }
-            self.centralWidget = game
             QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in
-                self.resize(width: 0, height: 0)
+                self.centralWidget = game
+                QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in
+                    self.resize(width: 0, height: 0)
+                    self.setFixedSize(self.size)
+                }
             }
             self.dialogIsVisible = false
         } else {
@@ -98,4 +101,3 @@ class MainWindow: UI_MainWindow {
         }
     }
 }
-
