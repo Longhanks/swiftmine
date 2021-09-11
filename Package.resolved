@@ -5,8 +5,8 @@
         "package": "Qlift",
         "repositoryURL": "https://github.com/DimaRU/qlift",
         "state": {
-          "branch": "qt5",
-          "revision": "7d016718ad711bba1edde6d6081028a89c4f17aa",
+          "branch": "master",
+          "revision": "7853a63da769b1c961175721f7ba57dfac391aaf",
           "version": null
         }
       }

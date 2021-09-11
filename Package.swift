@@ -15,7 +15,7 @@ let package = Package(
         .package(
             name: "Qlift",
             url: "https://github.com/DimaRU/qlift",
-            .branch("qt5")
+            .branch("master")
         )
     ],
     targets: [
@@ -24,12 +24,7 @@ let package = Package(
             dependencies: [
                 "Qlift"
             ],
-            path: "Sources",
-            linkerSettings: [
-                .linkedFramework("QtWidgets", .when(platforms: [.macOS])),
-                .linkedFramework("QtCore", .when(platforms: [.macOS])),
-                .linkedFramework("QtGui", .when(platforms: [.macOS]))
-            ]
+            path: "Sources"
         )
     ]
 )
