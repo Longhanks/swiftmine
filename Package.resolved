@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Qlift",
-        "repositoryURL": "https://github.com/DimaRU/qlift",
-        "state": {
-          "branch": "master",
-          "revision": "7853a63da769b1c961175721f7ba57dfac391aaf",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "qlift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DimaRU/qlift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "a62509f8105f1d0afd472b14320f9a7dec812591"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

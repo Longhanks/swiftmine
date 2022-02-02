@@ -3,17 +3,18 @@ import Qlift
 
 class MainWindow: UI_MainWindow {
     var dialogIsVisible = false
-
+    var game: GameWidget?
+    
     init() {
         super.init()
-        self.actionNewGame.connectTriggered { _ in
-            self.showNewGameDialog()
+        self.actionNewGame.connectTriggered { [weak self] _ in
+            self?.showNewGameDialog()
         }
-        self.pushButtonNewGame.connectClicked { _ in
-            self.showNewGameDialog()
+        self.pushButtonNewGame.connectClicked { [weak self] _ in
+            self?.showNewGameDialog()
         }
-        self.actionExit.connectTriggered { _ in
-            _ = self.close()
+        self.actionExit.connectTriggered { [weak self] _ in
+            self?.close()
         }
         let desktopRect = QApplication.desktop.availableGeometry(for: self)
         let center = desktopRect.center
@@ -29,6 +30,7 @@ class MainWindow: UI_MainWindow {
         let dlg = NewGameDialog(parent: self)
         if dlg.exec() == .Accepted {
             let game = GameWidget(rows: dlg.spinBoxRows.value, columns: dlg.spinBoxColumns.value, mines: dlg.spinBoxMines.value, parent: self)
+            self.game = game // Retain
             game.onGameIsWon = { [weak self] in
                 self?.gameIsWon()
             }
@@ -83,7 +85,7 @@ class MainWindow: UI_MainWindow {
     }
 
     override func closeEvent(event: QCloseEvent) {
-        if self.dialogIsVisible {
+        guard !self.dialogIsVisible else {
             event.ignore()
             return
         }
