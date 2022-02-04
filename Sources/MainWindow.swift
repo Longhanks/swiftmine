@@ -1,7 +1,7 @@
 import Qlift
 
 
-class MainWindow: UI_MainWindow {
+class MainWindow: UI_MainWindow, GameWidgetProtocol {
     var dialogIsVisible = false
     var game: GameWidget?
     
@@ -31,12 +31,7 @@ class MainWindow: UI_MainWindow {
         if dlg.exec() == .Accepted {
             let game = GameWidget(rows: dlg.spinBoxRows.value, columns: dlg.spinBoxColumns.value, mines: dlg.spinBoxMines.value, parent: self)
             self.game = game // Retain
-            game.onGameIsWon = { [weak self] in
-                self?.gameIsWon()
-            }
-            game.onGameIsLost = { [weak self] in
-                self?.gameIsLost()
-            }
+            game.delegate = self
             QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in
                 self.centralWidget = game
                 QTimer.singleShot(msec: 0, timerType: .CoarseTimer) { [unowned self] in

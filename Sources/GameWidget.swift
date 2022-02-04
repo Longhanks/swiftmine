@@ -1,9 +1,12 @@
 import Qlift
 
-
+protocol GameWidgetProtocol: AnyObject {
+    func gameIsWon()
+    func gameIsLost()
+}
+        
 class GameWidget: UI_GameWidget {
-    var onGameIsWon: (() -> Void)?
-    var onGameIsLost: (() -> Void)?
+    weak var delegate: GameWidgetProtocol?
     let rows: Int32
     let columns: Int32
     var matrix = [[Tile]]()
@@ -22,7 +25,7 @@ class GameWidget: UI_GameWidget {
                     self.clickSucceeded(column: x, row: y)
                 }
                 btn.onClickedMine = { [unowned self] in
-                    self.onGameIsLost?()
+                    delegate?.gameIsLost()
                 }
                 self.matrix[Int(column)].append(btn)
             }
@@ -95,6 +98,6 @@ extension GameWidget {
                 }
             }
         }
-        onGameIsWon?()
+        delegate?.gameIsWon()
     }
 }
