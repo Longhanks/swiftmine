@@ -1,16 +1,18 @@
 import Qlift
 
-
 class NewGameDialog: UI_NewGameDialog {
     init(parent: QWidget? = nil) {
         super.init(parent: parent, flags: .Sheet)
-        self.comboBoxDefaultModes.connectCurrentIndexChanged(to: self.checkNewMode)
+        self.comboBoxDefaultModes.connectCurrentIndexChanged { [weak self] in
+            self?.checkNewMode($0)
+        }
         if let parentWidget = parent {
             self.move(to: parentWidget.window.frameGeometry.topLeft + parentWidget.window.rect.center - self.rect.center)
         }
     }
 
-    func checkNewMode(_ newMode: String) {
+    func checkNewMode(_ index: Int32) {
+        let newMode = comboBoxDefaultModes.itemText(index: index)
         switch newMode {
         case "Beginner":
             self.spinBoxRows.enabled = false

@@ -14,6 +14,7 @@ class Tile: QFrame {
         self.x = x
         self.y = y
         super.init(parent: parent)
+        
         let layout = QVBoxLayout(parent: self)
         layout.contentsMargins = QMargins(left: 0, top: 0, right: 0, bottom: 0)
         self.layout = layout
@@ -27,9 +28,7 @@ class Tile: QFrame {
     private var _size = QSize(width: 20, height: 20)
 
     override var sizeHint: QSize {
-        get {
-            return self._size
-        }
+        self._size
     }
 
     override func mousePressEvent(event: QMouseEvent) {
@@ -39,9 +38,7 @@ class Tile: QFrame {
             self.rightClickedTile()
         }
     }
-}
 
-extension Tile {
     func clickedTile(ignoreMark: Bool = false) {
         if self.label.text == "F" {
             if !ignoreMark {

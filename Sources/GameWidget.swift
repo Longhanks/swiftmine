@@ -1,9 +1,12 @@
 import Qlift
 
-
+protocol GameWidgetProtocol: AnyObject {
+    func gameIsWon()
+    func gameIsLost()
+}
+        
 class GameWidget: UI_GameWidget {
-    var onGameIsWon: (() -> Void)?
-    var onGameIsLost: (() -> Void)?
+    weak var delegate: GameWidgetProtocol?
     let rows: Int32
     let columns: Int32
     var matrix = [[Tile]]()
@@ -22,7 +25,7 @@ class GameWidget: UI_GameWidget {
                     self.clickSucceeded(column: x, row: y)
                 }
                 btn.onClickedMine = { [unowned self] in
-                    self.onGameIsLost?()
+                    delegate?.gameIsLost()
                 }
                 self.matrix[Int(column)].append(btn)
             }
@@ -42,13 +45,10 @@ class GameWidget: UI_GameWidget {
         }
 
         // Set the count
-        for column in self.matrix {
+        for column in matrix {
             for btn in column {
-                for (x, y) in self.getValidMatrixIndices(x: btn.x, y: btn.y) {
-                    let neighbor = self.matrix[Int(x)][Int(y)]
-                    if neighbor.isMine {
-                        btn.count += 1
-                    }
+                for (x, y) in getValidMatrixIndices(x: btn.x, y: btn.y) where matrix[Int(x)][Int(y)].isMine {
+                    btn.count += 1
                 }
             }
         }
@@ -79,8 +79,8 @@ extension GameWidget {
 
         return indices.filter { (x, y) in
             if x >= 0 && y >= 0 {
-                let columns = self.matrix.count
-                let rows = self.matrix[0].count
+                let columns = matrix.count
+                let rows = matrix[0].count
                 if x < columns && y < rows {
                     return true
                 }
@@ -90,7 +90,7 @@ extension GameWidget {
     }
 
     func checkIfGameIsWon() {
-        for column in self.matrix {
+        for column in matrix {
             for btn in column {
                 let countIsVisible = !btn.label.text.isEmpty && btn.label.text != "F"
                 if !(countIsVisible || btn.isMine) {
@@ -98,6 +98,6 @@ extension GameWidget {
                 }
             }
         }
-        self.onGameIsWon?()
+        delegate?.gameIsWon()
     }
 }

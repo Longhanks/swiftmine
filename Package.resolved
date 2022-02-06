@@ -1,25 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Qlift",
-        "repositoryURL": "https://github.com/Longhanks/qlift",
-        "state": {
-          "branch": "master",
-          "revision": "a6da5b2b37503b37d7059383f0004749b404c967",
-          "version": null
-        }
-      },
-      {
-        "package": "CQlift",
-        "repositoryURL": "https://github.com/Longhanks/qlift-c-api",
-        "state": {
-          "branch": "master",
-          "revision": "a5900ae0a3b85230573255fb46774eb8223696ba",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "qlift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DimaRU/qlift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "a62509f8105f1d0afd472b14320f9a7dec812591"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
